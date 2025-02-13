@@ -1,115 +1,75 @@
 import React from "react";
-import presaleBonus from "../assets/presale.svg";
-import referralSystem from "../assets/referal.svg";
-import fixedStaking from "../assets/fixedstake.svg";
-import liquidityPool from "../assets/liqpool.svg";
-import flexibleStaking from "../assets/flexstake.svg";
-import star from "../assets/star.svg";
-import border from "../assets/border.svg";
 
-const WaysToEarn = () => {
+const HowItWorks = () => {
   return (
-    <section className="relative w-full h-screen bg-black flex flex-col items-center justify-center px-8">
-      {/* Border SVG */}
-      <img src={border} alt="Border" className="absolute w-[150px] h-[500px]" />
-
+    <section className="relative w-screen h-screen bg-black flex flex-col items-center justify-center px-8 overflow-hidden">
       {/* Title */}
-      <div className="absolute top-[35%] text-center">
-        <h1 className="text-white text-3xl font-bold">Ways to</h1>
-        <h1 className="text-yellow-400 text-4xl font-bold">Earn with BGE</h1>
+      <div className="text-center mb-12">
+        <h1 className="text-white text-4xl font-bold">How It Works</h1>
+        <p className="text-gray-400 text-sm">
+          Get started with Banyan Grow in four simple steps
+        </p>
       </div>
 
-      {/* Earning Options Grid */}
-      <div className="relative flex flex-col items-center justify-center w-full max-w-4xl">
-        {/* Presale Bonus (Top Center) */}
-        <div className="absolute top-[-10%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
-          <img
-            src={presaleBonus}
-            alt="Pre-Sale Bonus"
-            className="w-16 h-16 mr-3"
-          />
-          <div>
-            <h3 className="text-white font-bold text-sm">Pre-Sale Bonus</h3>
-            <p className="text-gray-400 text-xs">
-              Buy now and get 3% extra tokens every month for 7 months.
-            </p>
-          </div>
-        </div>
+      {/* Steps Container */}
+      <div className="relative flex flex-col gap-6 w-full max-w-lg">
+        {[
+          {
+            id: 1,
+            title: "Buy BGE Tokens",
+            desc: "Invest early and secure the best price",
+          },
+          {
+            id: 2,
+            title: "Stake & Earn",
+            desc: "Choose from flexible or fixed staking plans",
+          },
+          {
+            id: 3,
+            title: "Refer & Earn",
+            desc: "Share with friends and earn multi-level rewards",
+          },
+          {
+            id: 4,
+            title: "Liquidity Mining",
+            desc: "Provide liquidity and earn additional rewards",
+          },
+        ].map((step, index) => (
+          <div key={step.id} className="relative flex items-center">
+            {/* Follow-up Line */}
+            {index !== 0 && (
+              <div className="absolute left-5 top-[-24px] h-6 w-[2px] bg-gray-600"></div>
+            )}
 
-        {/* Fixed Staking (Right Center) */}
-        <div className="absolute right-[-12%] top-[5%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
-          <img
-            src={fixedStaking}
-            alt="Fixed Staking"
-            className="w-16 h-16 mr-3"
-          />
-          <div>
-            <h3 className="text-white font-bold text-sm">Fixed Staking</h3>
-            <p className="text-gray-400 text-xs">
-              Earn 5% (3M), 11% (6M), or 24% (12M) on your investment.
-            </p>
-          </div>
-        </div>
+            {/* Green Shadow - Alternating Sides */}
+            <div
+              className={`absolute inset-0 bg-green-500 rounded-lg scale-[1.03] ${
+                index % 2 === 0
+                  ? "-translate-x-2 -translate-y-2"
+                  : "translate-x-2 translate-y-2"
+              }`}
+            />
 
-        {/* Referral System (Left Center) */}
-        <div className="absolute left-[-12%] top-[20%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
-          <img
-            src={referralSystem}
-            alt="Referral System"
-            className="w-16 h-16 mr-3"
-          />
-          <div>
-            <h3 className="text-white font-bold text-sm">Referral System</h3>
-            <p className="text-gray-400 text-xs">
-              Earn up to 6.25% commission on 7-level referrals.
-            </p>
+            {/* Step Card */}
+            <div className="relative flex items-center bg-black text-white rounded-lg p-5 w-full shadow-lg border border-gray-700">
+              <div className="flex items-center justify-center bg-gray-900 w-10 h-10 text-xl font-bold rounded mr-4">
+                {step.id}
+              </div>
+              <div>
+                <h3 className="font-bold">{step.title}</h3>
+                <p className="text-gray-400 text-sm">{step.desc}</p>
+              </div>
+            </div>
           </div>
-        </div>
-
-        {/* Liquidity Pool (Bottom Left) */}
-        <div className="absolute bottom-[-10%] left-[-12%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
-          <img
-            src={liquidityPool}
-            alt="Liquidity Pool"
-            className="w-16 h-16 mr-3"
-          />
-          <div>
-            <h3 className="text-white font-bold text-sm">Liquidity Pool</h3>
-            <p className="text-gray-400 text-xs">
-              Earn 0.2% on every transaction while securing the ecosystem.
-            </p>
-          </div>
-        </div>
-
-        {/* Flexible Staking (Bottom Right) */}
-        <div className="absolute bottom-[-10%] right-[-12%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
-          <img
-            src={flexibleStaking}
-            alt="Flexible Staking"
-            className="w-16 h-16 mr-3"
-          />
-          <div>
-            <h3 className="text-white font-bold text-sm">Flexible Staking</h3>
-            <p className="text-gray-400 text-xs">
-              Earn 3% APY with easy withdrawals.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
 
-      {/* Stars */}
-      <img
-        src={star}
-        alt="Star"
-        className="absolute top-[3%] right-[8%] w-10 h-10 opacity-80"
-      />
-      <img
-        src={star}
-        alt="Star"
-        className="absolute bottom-[3%] left-[8%] w-10 h-10 opacity-80"
-      />
+      {/* Stars - Arranged According to Image */}
+      <div className="absolute top-10 right-16 text-white text-3xl">✦</div>
+      <div className="absolute bottom-16 left-10 text-white text-5xl">✦</div>
+      <div className="absolute top-1/2 left-1/3 text-white text-2xl">✦</div>
     </section>
   );
 };
 
-export default WaysToEarn;
+export default HowItWorks;
