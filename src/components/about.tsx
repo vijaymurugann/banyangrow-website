@@ -18,7 +18,7 @@ const WhyInvest = () => {
         {/* Title Animation */}
         <motion.h1
           initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          animate={hovered ? { x: 0, opacity: 1 } : {}}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
         >
@@ -29,8 +29,8 @@ const WhyInvest = () => {
         <motion.img
           src={bgecoin}
           alt="BGE Coin"
-          initial={{ scale: 0.8, rotate: -10, opacity: 0 }}
-          animate={{ scale: 1, rotate: 0, opacity: 1 }}
+          initial={{ scale: 0.5, rotate: -20, opacity: 0 }}
+          animate={hovered ? { scale: 1, rotate: 0, opacity: 1 } : {}}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="w-32 sm:w-48 md:w-56 lg:w-[441px] object-contain"
         />
@@ -63,8 +63,8 @@ const WhyInvest = () => {
           ].map((item, index) => (
             <motion.div
               key={index}
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              initial={{ x: 100, opacity: 0 }}
+              animate={hovered ? { x: 0, opacity: 1 } : {}}
               transition={{ duration: 0.3, delay: index * 0.2, ease: "easeOut" }}
               className="bg-[#111] rounded-lg p-4 md:p-6 shadow-md border border-gray-800 flex flex-col justify-center"
             >

@@ -24,13 +24,9 @@ const HeroSection = () => {
       {/* Navigation Bar - Responsive */}
       <nav className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 sm:px-10 py-4 sm:py-6 z-20">
         <img src={banyangrowlogo} alt="Logo" className="h-10 sm:h-12" />
-        
-        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button className="text-white text-2xl">☰</button>
         </div>
-
-        {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 lg:gap-10 text-white text-sm sm:text-lg font-medium">
           <li className="hover:text-yellow-300 transition duration-200 cursor-pointer">Home</li>
           <li className="hover:text-yellow-300 transition duration-200 cursor-pointer">Why Invest?</li>
@@ -38,15 +34,18 @@ const HeroSection = () => {
           <li className="hover:text-yellow-300 transition duration-200 cursor-pointer">How it Works</li>
           <li className="hover:text-yellow-300 transition duration-200 cursor-pointer">Roadmap</li>
         </ul>
-
-        {/* Register Button */}
         <button className="hidden md:block border-2 border-yellow-400 text-yellow-400 font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md transition-all duration-300 hover:bg-yellow-400 hover:text-black">
           Register
         </button>
       </nav>
 
-      {/* Title Section - Responsive */}
-      <div className="relative z-20 max-w-4xl text-white mt-10 px-6 sm:px-0">
+      {/* Title Section - Responsive with Animation */}
+      <motion.div
+        className="relative z-20 max-w-4xl text-white mt-10 px-6 sm:px-0"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <div className="flex items-center justify-center mb-4">
           <img src={gstar} alt="Star" className="w-5 sm:w-6 h-5 sm:h-6 mr-2" />
           <p className="text-xs sm:text-md bg-gray-800 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-white font-medium">
@@ -55,15 +54,25 @@ const HeroSection = () => {
           <img src={gstar} alt="Star" className="w-5 sm:w-6 h-5 sm:h-6 ml-2" />
         </div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mt-6 leading-tight">
+        <motion.h1
+          className="text-3xl sm:text-5xl md:text-6xl font-extrabold mt-6 leading-tight"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        >
           A Smarter Way to Grow <br /> Your Wealth
-        </h1>
-        
-        {/* Buy BGE Tokens Button - Scales Responsively */}
-        <button className="mt-6 sm:mt-8 bg-yellow-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-lg font-bold shadow-lg transition-all duration-300 hover:bg-yellow-300">
+        </motion.h1>
+
+        {/* Buy BGE Tokens Button - Animated */}
+        <motion.button
+          className="mt-6 sm:mt-8 bg-yellow-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-lg font-bold shadow-lg transition-all duration-300 hover:bg-yellow-300"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+        >
           Buy BGE Tokens
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
     </div>
   );
 };
