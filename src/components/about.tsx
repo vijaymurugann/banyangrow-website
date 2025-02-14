@@ -1,25 +1,26 @@
+"use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import bgecoin from "../assets/coinwormhole.svg"; // Update with actual path
-import star from "../assets/star.svg"; // Add star assets if necessary
+import bgecoin from "../assets/coinwormhole.svg";
+import star from "../assets/star.svg";
 
 const WhyInvest = () => {
   const [hovered, setHovered] = useState(false);
 
   return (
     <section
-      className="relative w-full h-screen bg-black flex items-center justify-between px-16"
+      className="relative w-full min-h-screen bg-black flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 py-12"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {/* Left Side - Wormhole & Coin */}
-      <div className="relative flex flex-col items-center justify-center w-1/2">
+      <div className="relative flex flex-col items-center justify-center w-full lg:w-1/2 text-center lg:text-left">
         {/* Title Animation */}
         <motion.h1
           initial={{ x: -100, opacity: 0 }}
-          animate={hovered ? { x: 0, opacity: 1 } : {}}
+          animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-5xl font-bold text-white mb-6 text-center"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
         >
           Why Invest <br /> in BGE?
         </motion.h1>
@@ -29,15 +30,15 @@ const WhyInvest = () => {
           src={bgecoin}
           alt="BGE Coin"
           initial={{ scale: 0.8, rotate: -10, opacity: 0 }}
-          animate={hovered ? { scale: 1, rotate: 0, opacity: 1 } : {}}
+          animate={{ scale: 1, rotate: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="w-[441px] h-[514px] object-contain"
+          className="w-32 sm:w-48 md:w-56 lg:w-[441px] object-contain"
         />
       </div>
 
       {/* Right Side - Investment Benefits Grid */}
-      <div className="w-1/2 flex flex-col items-start">
-        <div className="grid grid-cols-2 gap-8 max-w-lg text-white ml-auto">
+      <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start mt-8 lg:mt-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl text-white">
           {[
             {
               title: "Guaranteed Passive Income",
@@ -62,13 +63,15 @@ const WhyInvest = () => {
           ].map((item, index) => (
             <motion.div
               key={index}
-              initial={{ x: 100, opacity: 0 }}
-              animate={hovered ? { x: 0, opacity: 1 } : {}}
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3, delay: index * 0.2, ease: "easeOut" }}
-              className="bg-[#111] rounded-xl p-6 shadow-lg border border-gray-800 aspect-square flex flex-col justify-center"
+              className="bg-[#111] rounded-lg p-4 md:p-6 shadow-md border border-gray-800 flex flex-col justify-center"
             >
-              <div className={`${item.color} text-xl font-bold`}>{item.title}</div>
-              <p className="text-gray-400 text-sm mt-2">{item.desc}</p>
+              <div className={`${item.color} text-sm sm:text-lg font-bold`}>
+                {item.title}
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm mt-1">{item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -80,14 +83,14 @@ const WhyInvest = () => {
         alt="Star"
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-        className="absolute top-10 right-10 w-8 h-8 opacity-80"
+        className="absolute top-8 sm:top-10 right-6 sm:right-10 w-4 sm:w-6 opacity-80"
       />
       <motion.img
         src={star}
         alt="Star"
         animate={{ rotate: -360 }}
         transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-        className="absolute bottom-20 left-10 w-8 h-8 opacity-80"
+        className="absolute bottom-16 left-6 sm:left-10 w-4 sm:w-6 opacity-80"
       />
     </section>
   );
