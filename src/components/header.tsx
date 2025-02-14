@@ -19,7 +19,7 @@ const Header = () => {
           Home
         </a>
         <a
-          href="#why-invest"
+          href="WhyInvest"
           className="text-white font-medium hover:text-yellow-400 transition-colors"
         >
           Why Invest?
