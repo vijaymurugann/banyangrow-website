@@ -1,6 +1,6 @@
 "use client";
-import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useRef } from "react";  // ✅ Added missing import
 import bgecoin from "../assets/coinwormhole.svg";
 import star from "../assets/star.svg";
 

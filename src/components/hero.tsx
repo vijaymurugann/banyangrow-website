@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react"; // ✅ Keep only necessary imports
 import { Menu, X } from "lucide-react";
 import spiderweb from "../assets/spiderweb.svg";
 import banyangrowlogo from "../assets/banyangrowlogo.svg";

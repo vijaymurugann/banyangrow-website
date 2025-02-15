@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import gstar from "../assets/gstar.svg";
 
@@ -45,50 +45,57 @@ const Waitlist = () => {
       <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] max-w-80 max-h-80 bg-yellow-400 opacity-30 blur-3xl rounded-full"></div>
 
       {/* Floating Stars */}
-      <img
+      <motion.img
         src={gstar}
         alt="Star"
-        className="absolute top-8 right-10 w-4 sm:w-6 h-4 sm:h-6 animate-pulse"
+        className="absolute top-8 right-10 w-4 sm:w-6 h-4 sm:h-6"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
       />
-      <img
+      <motion.img
         src={gstar}
         alt="Star"
         className="absolute top-16 left-8 w-3 sm:w-4 h-3 sm:h-4 opacity-75"
+        animate={{ rotate: [0, 10, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
       />
-      <img
+      <motion.img
         src={gstar}
         alt="Star"
-        className="absolute bottom-10 right-16 w-4 sm:w-5 h-4 sm:h-5 animate-bounce"
+        className="absolute bottom-10 right-16 w-4 sm:w-5 h-4 sm:h-5"
+        animate={{ y: [0, -15, 0] }}
+        transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
       />
 
       {/* Title */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight"
+      >
         BGE Pre-Sale is Coming Soon!
-      </h1>
-      <p className="text-sm sm:text-lg mt-2 px-4">
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        className="text-sm sm:text-lg mt-2 px-4"
+      >
         Exclusive Early-Bird Bonus:{" "}
         <span className="font-semibold">3% Extra Tokens</span> for 7 Months!
-      </p>
-      <p className="text-lg sm:text-xl font-semibold text-yellow-400 mt-4">
+      </motion.p>
+      <motion.p
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+        className="text-lg sm:text-xl font-semibold text-yellow-400 mt-4"
+      >
         🚀 Launch on March 16, 2025
-      </p>
+      </motion.p>
 
-      {/* Loading Animation */}
-      {loading ? (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 1,
-            ease: "easeOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className="mt-6 text-yellow-400 text-lg sm:text-2xl font-semibold"
-        >
-          Loading countdown...
-        </motion.div>
-      ) : (
+      {/* Countdown Timer (No Blinking Effect) */}
+      {!loading ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -125,6 +132,15 @@ const Waitlist = () => {
               Countdown Ended
             </span>
           )}
+        </motion.div>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="mt-6 text-yellow-400 text-lg sm:text-2xl font-semibold"
+        >
+          Loading countdown...
         </motion.div>
       )}
 

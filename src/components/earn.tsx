@@ -1,4 +1,3 @@
-import React from "react";
 import presaleBonus from "../assets/presale.svg";
 import referralSystem from "../assets/referal.svg";
 import fixedStaking from "../assets/fixedstake.svg";
