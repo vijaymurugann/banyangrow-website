@@ -1,25 +1,25 @@
 "use client";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import bgecoin from "../assets/coinwormhole.svg";
 import star from "../assets/star.svg";
 
 const WhyInvest = () => {
-  const [hovered, setHovered] = useState(false);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
     <section
+      ref={sectionRef}
       className="relative w-full min-h-screen bg-black flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 py-12"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       {/* Left Side - Wormhole & Coin */}
       <div className="relative flex flex-col items-center justify-center w-full lg:w-1/2 text-center lg:text-left">
         {/* Title Animation */}
         <motion.h1
           initial={{ x: -100, opacity: 0 }}
-          animate={hovered ? { x: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          animate={isInView ? { x: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
         >
           Why Invest <br /> in BGE?
@@ -30,8 +30,8 @@ const WhyInvest = () => {
           src={bgecoin}
           alt="BGE Coin"
           initial={{ scale: 0.5, rotate: -20, opacity: 0 }}
-          animate={hovered ? { scale: 1, rotate: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          animate={isInView ? { scale: 1, rotate: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="w-32 sm:w-48 md:w-56 lg:w-[441px] object-contain"
         />
       </div>
@@ -64,14 +64,20 @@ const WhyInvest = () => {
             <motion.div
               key={index}
               initial={{ x: 100, opacity: 0 }}
-              animate={hovered ? { x: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.3, delay: index * 0.2, ease: "easeOut" }}
+              animate={isInView ? { x: 0, opacity: 1 } : {}}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.2,
+                ease: "easeOut",
+              }}
               className="bg-[#111] rounded-lg p-4 md:p-6 shadow-md border border-gray-800 flex flex-col justify-center"
             >
               <div className={`${item.color} text-sm sm:text-lg font-bold`}>
                 {item.title}
               </div>
-              <p className="text-gray-400 text-xs sm:text-sm mt-1">{item.desc}</p>
+              <p className="text-gray-400 text-xs sm:text-sm mt-1">
+                {item.desc}
+              </p>
             </motion.div>
           ))}
         </div>

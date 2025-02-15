@@ -9,24 +9,28 @@ import border from "../assets/border.svg";
 
 const WaysToEarn = () => {
   return (
-    <section className="relative w-full h-screen bg-black flex flex-col items-center justify-center px-8">
-      {/* Border SVG */}
-      <img src={border} alt="Border" className="absolute w-[80%] h-[70%]" />
+    <section className="relative w-full min-h-screen bg-black flex flex-col items-center justify-center px-8">
+      {/* Border SVG - Increased Size */}
+      <div className="absolute w-[calc(70%+20px)] h-[calc(70%+20px)] flex items-center justify-center z-0">
+        <img src={border} alt="Border" className="w-full h-full" />
+      </div>
 
-      {/* Title */}
-      <div className="absolute top-[30%] text-center">
-        <h1 className="text-white text-3xl font-bold">Ways to</h1>
-        <h1 className="text-yellow-400 text-4xl font-bold">Earn with BGE</h1>
+      {/* Title - Centered inside Border */}
+      <div className="absolute w-[calc(60%+20px)] h-[calc(60%+20px)] flex flex-col items-center justify-center z-10">
+        <h1 className="text-white text-4.5xl font-bold text-center">Ways to</h1>
+        <h1 className="text-yellow-400 text-5.5xl font-bold text-center">
+          Earn with BGE
+        </h1>
       </div>
 
       {/* Earning Options Grid */}
-      <div className="relative flex flex-col items-center justify-center w-full max-w-4xl">
-        {/* Presale Bonus (Top Center) */}
-        <div className="absolute top-[-10%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
+      <div className="relative flex flex-col items-center justify-center w-full max-w-3xl z-10">
+        {/* Top Center - Pre-Sale Bonus */}
+        <div className="absolute bottom-[220px] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[350px]">
           <img
             src={presaleBonus}
             alt="Pre-Sale Bonus"
-            className="w-12 h-12 mr-3"
+            className="w-10 h-10 mr-3"
           />
           <div>
             <h3 className="text-white font-bold text-sm">Pre-Sale Bonus</h3>
@@ -36,12 +40,12 @@ const WaysToEarn = () => {
           </div>
         </div>
 
-        {/* Fixed Staking (Right Center) */}
-        <div className="absolute right-[-15%] top-[10%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
+        {/* Top Right - Fixed Staking */}
+        <div className="absolute left-[610px] top-[10%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[350px]">
           <img
             src={fixedStaking}
             alt="Fixed Staking"
-            className="w-12 h-12 mr-3"
+            className="w-10 h-10 mr-3"
           />
           <div>
             <h3 className="text-white font-bold text-sm">Fixed Staking</h3>
@@ -51,12 +55,12 @@ const WaysToEarn = () => {
           </div>
         </div>
 
-        {/* Referral System (Left Center) */}
-        <div className="absolute left-[-15%] top-[25%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
+        {/* Middle Left - Referral System */}
+        <div className="absolute right-[78%] bottom-[20%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[350px]">
           <img
             src={referralSystem}
             alt="Referral System"
-            className="w-12 h-12 mr-3"
+            className="w-10 h-10 mr-3"
           />
           <div>
             <h3 className="text-white font-bold text-sm">Referral System</h3>
@@ -66,12 +70,12 @@ const WaysToEarn = () => {
           </div>
         </div>
 
-        {/* Liquidity Pool (Bottom Left) */}
-        <div className="absolute bottom-[-10%] left-[-15%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
+        {/* Bottom Left - Liquidity Pool */}
+        <div className="absolute top-[220px] right-[600px] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[350px]">
           <img
             src={liquidityPool}
             alt="Liquidity Pool"
-            className="w-12 h-12 mr-3"
+            className="w-10 h-10 mr-3"
           />
           <div>
             <h3 className="text-white font-bold text-sm">Liquidity Pool</h3>
@@ -81,12 +85,12 @@ const WaysToEarn = () => {
           </div>
         </div>
 
-        {/* Flexible Staking (Bottom Right) */}
-        <div className="absolute bottom-[-10%] right-[-15%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[442px] h-[127px]">
+        {/* Bottom Right - Flexible Staking */}
+        <div className="absolute top-[230px] left-[80%] flex bg-[#111] rounded-lg p-4 shadow-lg items-center w-[350px]">
           <img
             src={flexibleStaking}
             alt="Flexible Staking"
-            className="w-12 h-12 mr-3"
+            className="w-10 h-10 mr-3"
           />
           <div>
             <h3 className="text-white font-bold text-sm">Flexible Staking</h3>
@@ -97,21 +101,16 @@ const WaysToEarn = () => {
         </div>
       </div>
 
-      {/* Button */}
-      <button className="absolute bottom-[30px] bg-yellow-400 text-black px-6 py-2 rounded-lg font-bold shadow-md hover:bg-yellow-300">
-        Buy BGE Tokens
-      </button>
-
       {/* Stars */}
       <img
         src={star}
         alt="Star"
-        className="absolute top-[5%] right-[10%] w-6 h-6 opacity-80"
+        className="absolute top-[10%] right-[10%] w-5 h-5 opacity-80"
       />
       <img
         src={star}
         alt="Star"
-        className="absolute bottom-[5%] left-[10%] w-6 h-6 opacity-80"
+        className="absolute bottom-[10%] left-[10%] w-5 h-5 opacity-80"
       />
     </section>
   );
