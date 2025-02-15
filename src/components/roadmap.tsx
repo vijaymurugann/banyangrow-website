@@ -5,7 +5,7 @@ const roadmapData = [
   { title: "Token Launch & Pre-Sale Begins", quarter: "Q1 2025" },
   { title: "Staking & Referral Program Activation", quarter: "Q2 2025" },
   { title: "Liquidity Pool Implementation", quarter: "Q3 2025" },
-  { title: "Expansion & Ecosystem Growth", quarter: "Q1 2025" },
+  { title: "Expansion & Ecosystem Growth", quarter: "Q4 2025" },
 ];
 
 const Roadmap = () => {

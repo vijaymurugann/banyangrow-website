@@ -24,6 +24,17 @@ const HeroSection = () => {
     return () => window.removeEventListener("resize", updateScreenSize);
   }, []);
 
+  // Function to handle smooth scrolling
+  const handleScrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -70; // Adjust this value based on the height of your fixed navbar
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      setIsOpen(false); // Close the mobile menu after clicking
+    }
+  };
+
   return (
     <div className="relative w-screen h-screen bg-black flex flex-col items-center justify-center text-center overflow-hidden">
       {/* Background Glow */}
@@ -61,59 +72,85 @@ const HeroSection = () => {
         {/* Full Navigation (only on large screens) */}
         {isLargeScreen && (
           <ul className="flex space-x-8">
-            <li className="text-white font-medium hover:text-yellow-300 transition-colors">
+            <li
+              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("home")}
+            >
               Home
             </li>
-            <li className="text-white font-medium hover:text-yellow-300 transition-colors">
+            <li
+              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("why-invest")}
+            >
               Why Invest?
             </li>
-            <li className="text-white font-medium hover:text-yellow-300 transition-colors">
+            <li
+              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("staking")}
+            >
               Staking
             </li>
-            <li className="text-white font-medium hover:text-yellow-300 transition-colors">
+            <li
+              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("how-it-works")}
+            >
               How it Works
             </li>
-            <li className="text-white font-medium hover:text-yellow-300 transition-colors">
+            <li
+              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("roadmap")}
+            >
               Roadmap
             </li>
-            <button className="border-2 border-yellow-400 text-yellow-400 font-bold px-6 py-2 rounded-lg shadow-md transition-all duration-300 hover:bg-yellow-400 hover:text-black">
-              Register
-            </button>
           </ul>
         )}
       </nav>
 
       {/* Mobile & Tablet Dropdown Menu */}
-      <div
-        className={`fixed top-0 left-0 w-full h-screen bg-black flex flex-col items-center justify-center space-y-6 transition-transform duration-300 ${
-          isOpen ? "flex" : "hidden"
-        } z-50`}
-      >
-        {/* Close Button in Top Right Corner */}
-        <button
-          onClick={() => setIsOpen(false)}
-          className="absolute top-5 right-5 text-white z-50"
-        >
-          <X size={30} />
-        </button>
+      {isOpen && (
+        <div className="fixed top-0 left-0 w-full h-screen bg-black flex flex-col items-center justify-center space-y-6 transition-transform duration-300 z-50">
+          {/* Close Button in Top Right Corner */}
+          <button
+            onClick={() => setIsOpen(false)}
+            className="absolute top-5 right-5 text-white z-50"
+          >
+            <X size={30} />
+          </button>
 
-        <ul className="text-white text-lg space-y-6">
-          <li className="hover:text-yellow-300 transition-colors">Home</li>
-          <li className="hover:text-yellow-300 transition-colors">
-            Why Invest?
-          </li>
-          <li className="hover:text-yellow-300 transition-colors">Staking</li>
-          <li className="hover:text-yellow-300 transition-colors">
-            How it Works
-          </li>
-          <li className="hover:text-yellow-300 transition-colors">Roadmap</li>
-        </ul>
-
-        {/* Register Button (Only in Mobile & Tablet Dropdown) */}
-        <button className="w-3/4 border-2 border-yellow-400 text-yellow-400 font-bold px-6 py-2 rounded-lg shadow-md transition-all duration-300 hover:bg-yellow-400 hover:text-black">
-          Register
-        </button>
-      </div>
+          <ul className="text-white text-lg space-y-6">
+            <li
+              className="hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("home")}
+            >
+              Home
+            </li>
+            <li
+              className="hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("why-invest")}
+            >
+              Why Invest?
+            </li>
+            <li
+              className="hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("staking")}
+            >
+              Staking
+            </li>
+            <li
+              className="hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("how-it-works")}
+            >
+              How it Works
+            </li>
+            <li
+              className="hover:text-yellow-300 transition-colors cursor-pointer"
+              onClick={() => handleScrollToSection("roadmap")}
+            >
+              Roadmap
+            </li>
+          </ul>
+        </div>
+      )}
 
       {/* Title Section */}
       <div className="relative z-20 max-w-4xl text-white mt-10 px-6 sm:px-0">
@@ -133,6 +170,27 @@ const HeroSection = () => {
         <button className="mt-6 sm:mt-8 bg-yellow-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-lg font-bold shadow-lg transition-all duration-300 hover:bg-yellow-300">
           Buy BGE Tokens
         </button>
+      </div>
+
+      {/* Add id attributes to the target sections */}
+      <div id="home" className="section">
+        {/* Home Section Content */}
+      </div>
+
+      <div id="why-invest" className="section">
+        {/* Why Invest Section Content */}
+      </div>
+
+      <div id="staking" className="section">
+        {/* Staking Section Content */}
+      </div>
+
+      <div id="how-it-works" className="section">
+        {/* How it Works Section Content */}
+      </div>
+
+      <div id="roadmap" className="section">
+        {/* Roadmap Section Content */}
       </div>
     </div>
   );
