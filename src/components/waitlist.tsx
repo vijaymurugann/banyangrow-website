@@ -40,7 +40,8 @@ const Waitlist = () => {
   }, []);
 
   return (
-    <div className="relative w-full flex flex-col items-center justify-center text-center bg-black text-white py-16 px-4 sm:px-6 lg:px-12">
+
+    <div id="Staking"  className="relative w-full flex flex-col items-center justify-center text-center bg-black text-white py-16 px-4 sm:px-6 lg:px-12">
       {/* Yellow Blur Background */}
       <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] max-w-80 max-h-80 bg-yellow-400 opacity-30 blur-3xl rounded-full"></div>
 

@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect } from "react"; // ✅ Keep only necessary imports
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion"; // ✅ Animation
+import { Menu, X } from "lucide-react"; // ✅ Close icon added
 import spiderweb from "../assets/spiderweb.svg";
 import banyangrowlogo from "../assets/banyangrowlogo.svg";
 import gstar from "../assets/gstar.svg";
@@ -24,19 +25,22 @@ const HeroSection = () => {
     return () => window.removeEventListener("resize", updateScreenSize);
   }, []);
 
-  // Function to handle smooth scrolling
   const handleScrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -70; // Adjust this value based on the height of your fixed navbar
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const yOffset = -70;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
-      setIsOpen(false); // Close the mobile menu after clicking
+      setIsOpen(false);
     }
   };
 
   return (
-    <div className="relative w-screen h-screen bg-black flex flex-col items-center justify-center text-center overflow-hidden">
+    <div
+      className="relative w-screen h-screen bg-black flex flex-col items-center justify-center text-center overflow-hidden"
+      id="Home"
+    >
       {/* Background Glow */}
       <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 z-10">
         <div className="w-[80vw] h-[80vw] max-w-[600px] max-h-[600px] bg-yellow-400 rounded-full blur-[150px] opacity-40"></div>
@@ -56,7 +60,7 @@ const HeroSection = () => {
       )}
 
       {/* Navigation Bar */}
-      <nav className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 sm:px-10 py-4 sm:py-6 z-40">
+      <nav className="absolute top-[5px] left-0 right-0 flex items-center justify-between px-6 sm:px-10 py-4 sm:py-6 z-40">
         <img src={banyangrowlogo} alt="Logo" className="h-10 sm:h-12" />
 
         {/* Hamburger Menu (for Tablets & Mobile) */}
@@ -65,95 +69,74 @@ const HeroSection = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="text-white focus:outline-none z-50"
           >
-            <Menu size={28} />
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         )}
 
         {/* Full Navigation (only on large screens) */}
         {isLargeScreen && (
-          <ul className="flex space-x-8">
-            <li
-              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("home")}
-            >
-              Home
-            </li>
-            <li
-              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("why-invest")}
-            >
-              Why Invest?
-            </li>
-            <li
-              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("staking")}
-            >
-              Staking
-            </li>
-            <li
-              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("how-it-works")}
-            >
-              How it Works
-            </li>
-            <li
-              className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("roadmap")}
-            >
-              Roadmap
-            </li>
-          </ul>
+          <div className="flex items-center space-x-8">
+            <ul className="flex space-x-8">
+              {["Home", "WhyInvest", "Staking", "How It Works", "Roadmap"].map(
+                (section) => (
+                  <li
+                    key={section}
+                    className="text-white font-medium hover:text-yellow-300 transition-colors cursor-pointer"
+                    onClick={() => handleScrollToSection(section)}
+                  >
+                    {section
+                      .replace("-", " ")
+                      .replace(/\b\w/g, (char) => char.toUpperCase())}
+                  </li>
+                )
+              )}
+            </ul>
+            {/* Register Button */}
+            {/* <button className="bg-transparent border-2 border-yellow-400 text-yellow-400 px-4 py-2 rounded-full text-sm font-bold hover:bg-yellow-400 hover:text-black transition">
+              Register
+            </button> */}
+          </div>
         )}
       </nav>
 
-      {/* Mobile & Tablet Dropdown Menu */}
-      {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-screen bg-black flex flex-col items-center justify-center space-y-6 transition-transform duration-300 z-50">
-          {/* Close Button in Top Right Corner */}
-          <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-5 right-5 text-white z-50"
-          >
-            <X size={30} />
-          </button>
-
-          <ul className="text-white text-lg space-y-6">
-            <li
-              className="hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("home")}
-            >
-              Home
-            </li>
-            <li
-              className="hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("why-invest")}
-            >
-              Why Invest?
-            </li>
-            <li
-              className="hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("staking")}
-            >
-              Staking
-            </li>
-            <li
-              className="hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("how-it-works")}
-            >
-              How it Works
-            </li>
-            <li
-              className="hover:text-yellow-300 transition-colors cursor-pointer"
-              onClick={() => handleScrollToSection("roadmap")}
-            >
-              Roadmap
-            </li>
+      {/* Mobile Navigation (Dropdown) */}
+      {isOpen && (isTablet || isMobile) && (
+        <motion.div
+          initial={{ y: -30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="absolute top-[80px] left-0 w-full bg-black text-white flex flex-col items-center py-6 space-y-6 z-40 shadow-lg"
+        >
+          <ul className="flex flex-col space-y-4 text-lg font-medium">
+            {["Home", "WhyInvest", "Staking", "How It Works", "Roadmap"].map(
+              (section) => (
+                <li
+                  key={section}
+                  className="cursor-pointer hover:text-yellow-300 transition"
+                  onClick={() => handleScrollToSection(section)}
+                >
+                  {section
+                    .replace("-", " ")
+                    .replace(/\b\w/g, (char) => char.toUpperCase())}
+                </li>
+              )
+            )}
           </ul>
-        </div>
+
+          {/* Register Button - Styled like Image */}
+          {/* <button className="border-2 border-yellow-400 text-yellow-400 px-6 py-3 rounded-full text-sm font-bold hover:bg-yellow-400 hover:text-black transition">
+            Register
+          </button> */}
+        </motion.div>
       )}
 
-      {/* Title Section */}
-      <div className="relative z-20 max-w-4xl text-white mt-10 px-6 sm:px-0">
+      {/* Hero Content with Motion Effects */}
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="relative z-20 max-w-4xl text-white mt-10 px-6 sm:px-0"
+      >
         <div className="flex items-center justify-center mb-4">
           <img src={gstar} alt="Star" className="w-5 sm:w-6 h-5 sm:h-6 mr-2" />
           <p className="text-xs sm:text-md bg-gray-800 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-white font-medium">
@@ -166,32 +149,18 @@ const HeroSection = () => {
           A Smarter Way to Grow <br /> Your Wealth
         </h1>
 
-        {/* Buy BGE Tokens Button */}
+        {/* Buy BGE Tokens Button (NO ANIMATION) */}
         <button className="mt-6 sm:mt-8 bg-yellow-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-lg font-bold shadow-lg transition-all duration-300 hover:bg-yellow-300">
           Buy BGE Tokens
         </button>
-      </div>
+      </motion.div>
 
-      {/* Add id attributes to the target sections */}
-      <div id="home" className="section">
-        {/* Home Section Content */}
-      </div>
-
-      <div id="why-invest" className="section">
-        {/* Why Invest Section Content */}
-      </div>
-
-      <div id="staking" className="section">
-        {/* Staking Section Content */}
-      </div>
-
-      <div id="how-it-works" className="section">
-        {/* How it Works Section Content */}
-      </div>
-
-      <div id="roadmap" className="section">
-        {/* Roadmap Section Content */}
-      </div>
+      {/* Section IDs for smooth scrolling */}
+      {["home", "whyInvest", "staking", "how-it-works", "roadmap"].map(
+        (section) => (
+          <div key={section} id={section} className="section"></div>
+        )
+      )}
     </div>
   );
 };

@@ -8,8 +8,8 @@ const WhyInvest = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  return (
-    <section
+  return  (
+    <section id="WhyInvest"
       ref={sectionRef}
       className="relative w-full min-h-screen bg-black flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 py-12"
     >

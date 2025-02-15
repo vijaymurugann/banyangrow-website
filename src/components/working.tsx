@@ -32,7 +32,7 @@ const HowItWorks = () => {
   });
 
   return (
-    <section
+    <section id="How It Works"
       ref={ref}
       className="relative w-screen h-screen bg-black flex flex-col items-center justify-center px-8 overflow-hidden"
     >
