@@ -79,7 +79,7 @@ const WaysToEarn = () => {
           <div>
             <h3 className="text-white font-bold text-sm">Liquidity Pool</h3>
             <p className="text-gray-400 text-xs">
-              Earn 0.2% on every transaction while securing the ecosystem.
+              Earn 24% on every transaction while securing the ecosystem.
             </p>
           </div>
         </div>
