@@ -14,7 +14,7 @@ interface EarningBoxProps {
 
 const WaysToEarn = () => {
   return (
-    <section className="relative w-full min-h-screen bg-black flex flex-col items-center justify-center px-8">
+    <section className="relative w-full min-h-screen bg-black flex flex-col items-center justify-center">
       {/* Border SVG - Increased Size */}
       <div className="absolute w-[calc(70%+20px)] h-[calc(70%+20px)] flex items-center justify-center z-0 hidden md:flex">
         <img src={border} alt="Border" className="w-full h-full" />

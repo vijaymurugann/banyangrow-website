@@ -38,7 +38,7 @@ const HeroSection = () => {
 
   return (
     <div
-      className="relative w-screen h-screen bg-black flex flex-col items-center justify-center text-center overflow-hidden"
+      className="relative w-full md:w-screen h-screen bg-black flex flex-col items-center justify-center text-center overflow-hidden"
       id="Home"
     >
       {/* Background Glow */}

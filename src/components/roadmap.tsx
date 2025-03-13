@@ -10,7 +10,7 @@ const roadmapData = [
 
 const Roadmap = () => {
   return (
-    <section id="Roadmap" className="relative w-screen min-h-screen bg-black flex flex-col items-center justify-center overflow-hidden px-4">
+    <section id="Roadmap" className="relative w-full min-h-screen bg-black flex flex-col items-center justify-center overflow-hidden px-4">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
