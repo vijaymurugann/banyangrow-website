@@ -77,7 +77,7 @@ const HeroSection = () => {
         {isLargeScreen && (
           <div className="flex items-center space-x-8">
             <ul className="flex space-x-8">
-              {["Home", "WhyInvest", "Staking", "How It Works", "Roadmap"].map(
+              {["Home", "Why Invest", "Staking", "How It Works", "Roadmap"].map(
                 (section) => (
                   <li
                     key={section}
@@ -108,7 +108,7 @@ const HeroSection = () => {
           className="absolute top-[80px] left-0 w-full bg-black text-white flex flex-col items-center py-6 space-y-6 z-40 shadow-lg"
         >
           <ul className="flex flex-col space-y-4 text-lg font-medium">
-            {["Home", "WhyInvest", "Staking", "How It Works", "Roadmap"].map(
+            {["Home", "Why Invest", "Staking", "How It Works", "Roadmap"].map(
               (section) => (
                 <li
                   key={section}
@@ -156,7 +156,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Section IDs for smooth scrolling */}
-      {["home", "whyInvest", "staking", "how-it-works", "roadmap"].map(
+      {["home", "why Invest", "staking", "how-it-works", "roadmap"].map(
         (section) => (
           <div key={section} id={section} className="section"></div>
         )
