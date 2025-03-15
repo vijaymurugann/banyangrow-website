@@ -146,7 +146,7 @@ const Waitlist = () => {
       )}
 
       {/* Join the Whitelist Section */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
@@ -159,8 +159,7 @@ const Waitlist = () => {
           Limited Supply – Secure Your Spot Now!
         </p>
 
-        {/* Email Input & Button */}
-        <div className="mt-4 flex flex-col sm:flex-row items-center gap-3">
+\        <div className="mt-4 flex flex-col sm:flex-row items-center gap-3">
           <input
             type="email"
             placeholder="Enter your email address"
@@ -174,7 +173,7 @@ const Waitlist = () => {
             Pre-Register Now
           </motion.button>
         </div>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };
