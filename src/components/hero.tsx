@@ -121,9 +121,11 @@ const HeroSection = () => {
           </ul>
 
           {/* Register Button - Styled like Image */}
-          {/* <button className="border-2 border-yellow-400 text-yellow-400 px-6 py-3 rounded-full text-sm font-bold hover:bg-yellow-400 hover:text-black transition">
+          <a
+            href="https://app.banyangrow.xyz"
+            className="bg-transparent border-2 border-yellow-400 text-yellow-400 px-4 py-2 rounded-full text-sm font-bold hover:bg-yellow-400 hover:text-black transition">
             Register
-          </button> */}
+          </a>
         </motion.div>
       )}
 
