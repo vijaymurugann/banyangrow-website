@@ -12,7 +12,7 @@ type TimeLeftType = {
 };
 
 const Waitlist = () => {
-  const launchDate = new Date("2025-03-16T00:00:00").getTime();
+  const launchDate = new Date("2025-03-19T00:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState<TimeLeftType | null>(null);
   const [loading, setLoading] = useState(true);
 
