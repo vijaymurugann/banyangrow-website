@@ -92,7 +92,7 @@ const Waitlist = () => {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
         className="text-lg sm:text-xl font-semibold text-yellow-400 mt-4"
       >
-        🚀 Launch on March 16, 2025
+        🚀 Launch on March 19, 2025 / 08:00 UTC
       </motion.p>
 
       {/* Countdown Timer (No Blinking Effect) */}
