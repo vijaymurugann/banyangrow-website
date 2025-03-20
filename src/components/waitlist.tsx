@@ -12,7 +12,7 @@ type TimeLeftType = {
 };
 
 const Waitlist = () => {
-  const launchDate = new Date("2025-03-19T08:00:00").getTime();
+  const launchDate = new Date("2025-03-24T14:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState<TimeLeftType | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -40,8 +40,9 @@ const Waitlist = () => {
   }, []);
 
   return (
-
-    <div id="Staking"  className="relative w-full flex flex-col items-center justify-center text-center bg-black text-white py-16 px-4 sm:px-6 lg:px-12">
+    <div
+      id="Staking"
+      className="relative w-full flex flex-col items-center justify-center text-center bg-black text-white py-16 px-4 sm:px-6 lg:px-12">
       {/* Yellow Blur Background */}
       <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] max-w-80 max-h-80 bg-yellow-400 opacity-30 blur-3xl rounded-full"></div>
 
@@ -73,26 +74,30 @@ const Waitlist = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight"
-      >
-        BGE Pre-Sale is Coming Soon!
+        className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+        Exciting Update for Banyan Grow!
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        className="text-sm sm:text-lg mt-2 px-4"
-      >
-        Exclusive Early-Bird Bonus:{" "}
-        <span className="font-semibold">3% Extra Tokens</span> for 7 Months!
+        className="text-sm sm:text-lg mt-2 px-4 ">
+        We’re adding a powerful new feature to enhance your experience with
+        Banyan Grow.
+      </motion.p>
+      <motion.p
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        className="text-sm sm:text-lg mt-2 px-4 ">
+        To ensure a seamless launch, we’re rescheduling the pre-sale
       </motion.p>
       <motion.p
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-        className="text-lg sm:text-xl font-semibold text-yellow-400 mt-4"
-      >
-        🚀 Launch on March 19, 2025 / 08:00 UTC
+        className="text-lg sm:text-xl font-semibold text-yellow-400 mt-4">
+        🚀 Pre sale on March 24, 2025 06:00 GST
       </motion.p>
 
       {/* Countdown Timer (No Blinking Effect) */}
@@ -101,8 +106,7 @@ const Waitlist = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="grid grid-cols-2 sm:flex justify-center gap-6 sm:gap-10 text-lg sm:text-3xl font-bold mt-6"
-        >
+          className="grid grid-cols-2 sm:flex justify-center gap-6 sm:gap-10 text-lg sm:text-3xl font-bold mt-6">
           {timeLeft ? (
             <>
               <div className="flex flex-col items-center">
@@ -139,8 +143,7 @@ const Waitlist = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="mt-6 text-yellow-400 text-lg sm:text-2xl font-semibold"
-        >
+          className="mt-6 text-yellow-400 text-lg sm:text-2xl font-semibold">
           Loading countdown...
         </motion.div>
       )}
