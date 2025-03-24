@@ -20,8 +20,7 @@ export default function Footer() {
       initial={{ opacity: 0, y: 20 }}
       animate={controls}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="relative text-white py-12 overflow-hidden"
-    >
+      className="relative text-white py-12 overflow-hidden">
       {/* Yellow Blur Background */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-yellow-500/30 to-black blur-3xl opacity-50"></div>
@@ -76,8 +75,7 @@ export default function Footer() {
                 <a
                   href="/BGE_Privacy Policy.pdf"
                   download="BGE_Privacy Policy.pdf"
-                  className="text-gray-400 hover:text-white"
-                >
+                  className="text-gray-400 hover:text-white">
                   Privacy Policy
                 </a>
               </li>
@@ -85,8 +83,7 @@ export default function Footer() {
                 <a
                   href="/BGE_Terms & Conditions.pdf"
                   download="BGE_Terms & Conditions.pdf"
-                  className="text-gray-400 hover:text-white"
-                >
+                  className="text-gray-400 hover:text-white">
                   Terms & Conditions
                 </a>
               </li>
@@ -94,8 +91,7 @@ export default function Footer() {
                 <a
                   href="/banyan_grow.pdf"
                   download="banyan_grow.pdf"
-                  className="text-gray-400 hover:text-white"
-                >
+                  className="text-gray-400 hover:text-white">
                   Whitepaper
                 </a>
               </li>
@@ -105,7 +101,7 @@ export default function Footer() {
           {/* Contact Section */}
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-3">Contact</h3>
-            <p className="text-gray-300">📞 +971 544525959</p>
+            <a href="https://t.me/banyangrowexchange">Join Us On Telegram</a>
             <p className="text-gray-300">📧 support@banyangrowltd.com</p>
           </div>
         </div>
