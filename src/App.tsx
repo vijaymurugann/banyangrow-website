@@ -6,7 +6,7 @@ import HowItWorks from "./components/working";
 import Roadmap from "./components/roadmap";
 import FAQSection from "./components/faq";
 import Footer from "./components/footer";
-import Waitlist from "./components/waitlist";
+
 function App() {
   return (
     <>
