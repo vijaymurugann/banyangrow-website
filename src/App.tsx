@@ -11,7 +11,6 @@ function App() {
   return (
     <>
       <HeroSection />
-      <Waitlist />
       <WhyInvest />
       <WaysToEarn />
       <HowItWorks />
